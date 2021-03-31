@@ -13,14 +13,12 @@ public class epper16_9 {
 		strArr = str.split("");	
 		
 		String ans="";
+		
 		ArrayList<String> list = new ArrayList<String>();
 		
 		for(int i=0;i<strArr.length;i++) {
+			
 			if(i==strArr.length-1) { //마지막 인덱스일 때
-				if(strArr[i].equals(strArr[i-1])) {
-						list.add("");
-						break;
-				}
 				
 				if(!(strArr[i].equals(strArr[i-1]))) {
 					ans=ans.concat(strArr[i]);
@@ -28,6 +26,18 @@ public class epper16_9 {
 					break;
 					
 				}
+				if(ans.length()==0) {
+					list.add("");
+					list.add("");
+					System.out.println(list.toString());
+					return;
+				}
+				if(strArr[i].equals(strArr[i-1])) {
+					list.add("");
+					break;
+			}
+				
+				
 					
 			}
 			if(i==0) {//첫 인덱스일 때
@@ -40,10 +50,11 @@ public class epper16_9 {
 			}
 			//중간 인덱스들일때
 			if(strArr[i].equals(strArr[i+1])||strArr[i].equals(strArr[i-1])) {
-				
+				if(ans.length()!=0) {
 					list.add(ans);
 					ans="";
 					continue;
+				}
 				
 				
 			}

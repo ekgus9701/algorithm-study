@@ -10,12 +10,12 @@ public class epper16_3 {
 		if(num>=3600) {
 			ans+=num/3600;
 			num%=3600;
-			System.out.println(ans);
+			//System.out.println(ans);
 		}
 		if(num>=60) {
 			ans+=num/60;
 			num%=60;
-			System.out.println(ans);
+			//System.out.println(ans);
 		}
 		ans+=num;
 		
