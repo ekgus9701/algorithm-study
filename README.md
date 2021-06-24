@@ -1,3 +1,3 @@
 # AlgorithmStudy
 
-0625 c++로 풀이 시작
+0625 #1008 A/B
