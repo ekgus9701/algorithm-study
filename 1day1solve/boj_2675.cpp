@@ -9,6 +9,14 @@ int main(){
 
     int t, r;
     string str;
-
-    for (int i = 0;i<)
+    cin >> t;
+    for (int i = 0; i < t;i++){
+        cin >> r >> str;
+        for (int k = 0; k < str.length();k++){
+            for (int j = 0; j < r;j++){
+                cout << str[k];
+            }
+        }
+        cout << "\n";
+    }
 }
