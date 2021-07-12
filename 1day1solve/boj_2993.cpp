@@ -17,14 +17,14 @@ int main(){
  
   for (int i = 0; i < size-2; ++i) { 
 		for (int j = i + 1; j < size-1; ++j) {
-			string tmp = s;
+			string cng = s;
 
-			reverse(tmp.begin(), tmp.begin() + i+1);
-			reverse(tmp.begin()+i+1, tmp.begin() + j+1);
-			reverse(tmp.begin()+j+1, tmp.end());
+			reverse(cng.begin(), cng.begin() + i+1);
+			reverse(cng.begin()+i+1, cng.begin() + j+1);
+			reverse(cng.begin()+j+1, cng.end());
 
 
-			ans = min(ans, tmp); //ans에 사전순으로 가장 앞인 문자열 저장
+			ans = min(ans, cng); //ans에 사전순으로 가장 앞인 문자열 저장
 		}
 	}
 
