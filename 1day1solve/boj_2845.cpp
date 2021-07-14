@@ -14,9 +14,7 @@ int main(){
     k = l * p;
     for (int i = 0; i < 5;i++){
         cin >> num[i];
+        cout << num[i] - k << " ";}
     }
 
-    for (int i = 0; i < 5;i++){
-        cout << num[i] - k << " ";
-    }
-}
+  
