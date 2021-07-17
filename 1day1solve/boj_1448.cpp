@@ -26,19 +26,10 @@ int main(){
             break;
         }
         f++,s++,t++;
-
-        if(f>=n-2){
-            s++;
-            if(s>=n-1){
-                t++;
-                
-                    if(t>=n){
-                        cout << -1;
-                    break;
-                    }
-                }
-            }
+        if(t>=n){
+            cout << -1;
+            break;
         }
-    
 
+    }
 }
