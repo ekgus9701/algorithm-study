@@ -11,8 +11,7 @@ int main(){
     }
     for (int i = 0; i < 4;i++){
         cin >> ms[i];
-        sum2 += ms[i];
-        
+        sum2 += ms[i]; 
     }
 
     if(sum1<sum2){
