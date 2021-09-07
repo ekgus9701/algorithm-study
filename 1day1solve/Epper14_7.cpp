@@ -1,4 +1,4 @@
-//프로그래머스에서는 main함수 및 입출력문이 필요하지 않습니다. 대신 solution함수만 작성하면 됩니다.
+
 
 #include <iostream>
 #include <vector>
