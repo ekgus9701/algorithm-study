@@ -2,35 +2,30 @@
 #include <vector>
 
 using namespace std;
+long long solution(int cities, vector<int> distance, vector<int> price)
+{
+   
+}
 
 int main()
 {
-    int n;
-    vector<int> road;
+    int cities;
+    vector<int> distance;
     vector<int> price;
 
-    cin >> n;
-    for (int i = 0; i < n - 1; i++)
+    cin >> cities;
+    for (int i = 0; i < cities - 1; i++)
     {
         int k;
         cin >> k;
-        road.push_back(k);
+        distance.push_back(k);
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < cities; i++)
     {
         int k;
         cin >> k;
         price.push_back(k);
     }
-    long long cost = 0;
-    long long min_cost = price[0];
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (price[i] < min_cost)
-        {
-            min_cost = price[i];
-        }
-        cost += min_cost * road[i];
-    }
-    cout << cost;
+
+    cout << solution(cities, distance, price);
 }
