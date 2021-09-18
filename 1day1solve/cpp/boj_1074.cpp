@@ -3,38 +3,48 @@
 
 using namespace std;
 
-int main()
+int solution(int n, int r, int c)
 {
-	int n, r, c, x = 0, y = 0, ans = 0;
-	cin >> n >> r >> c;
-	n = pow(2, n);
-	while (n > 1)
+	int ans = 0;
+	int x = 1 << n - 1;
+	int y = x;
+
+	while (n-- > 0)
 	{
-		n /= 2;
-		// 1 왼쪽 위
-		if (r < x + n && c < y + n)
+		int temp = 1 << n - 1;
+		int skip = 1 << 2 * n;
+
+		if (c < x && r < y)
 		{
-			//아무것도 추가하지 않는다.
+			x -= temp;
+			y -= temp;
 		}
-		// 2 오른쪽 위
-		else if (r < x + n && c >= y + n)
+		else if (c >= x && r < y)
 		{
-			ans += n * n * 1; //횟수 추가
-			y += n;			  //오른쪽 위로 위치 이동
+			x += temp;
+			y -= temp;
+			ans += skip;
 		}
-		// 3 왼쪽 아래
-		else if (r >= x + n && c < y + n)
+		else if (c < x && r >= y)
 		{
-			ans += n * n * 2;
-			x += n;
+			x -= temp;
+			y += temp;
+			ans += skip * 2;
 		}
-		// 4 오른쪽 아래
 		else
 		{
-			ans += n * n * 3;
-			x += n;
-			y += n;
+			x += temp;
+			y += temp;
+			ans += skip * 3;
 		}
 	}
-	cout << ans;
+	return ans;
+}
+
+int main()
+{
+	int n, r, c;
+	cin >> n >> r >> c;
+
+	cout << solution(n, r, c);
 }
