@@ -1,76 +1,62 @@
 #include <iostream>
 #include <string>
-#include <deque>
+#include <vector>
 
 using namespace std;
-
-deque<char> wheel[4];
+vector<vector<int>> wheel;
+vector<vector<int>> move_dir;
 
 void move_wheel(int id, int dir)
 {
-    if (dir == -1)
-    {
+    if(dir==-1){
         wheel[id].push_back(wheel[id][0]);
-        wheel[id].pop_front();
+        wheel[id].erase(wheel[id].begin()); //맨 앞에거가 없어져야힘
     }
-    else
-    {
-        wheel[id].push_front(wheel[id][7]);
+    else{
         wheel[id].pop_back();
+        wheel[id].insert(wheel[id].begin(), wheel[id][7]);
     }
 }
+void play(int num,int dir){
+    int tmp_dir=dir;
+    char ns = wheel[num][6];
 
-void play(int num, int dir)
-{
-    char pre_pole = wheel[num][6];
-    int tmp_dir = dir;
-    for (int i = num - 1; i >= 0; i--)
-    {
-        tmp_dir *= -1; //시계방향이었으면 반시계로 돌려야하고 반사계였으면 시계로 돌려야하니까
-        if (wheel[i][2] == pre_pole)
+    for (int i = num - 1; i >= 0;i--){
+        tmp_dir *= -1;
+        if(ns==wheel[i][2])
             break;
-        pre_pole = wheel[i][6];
         move_wheel(i, tmp_dir);
+        ns = wheel[i][6];
     }
-    pre_pole = wheel[num][2];
+
     tmp_dir = dir;
-    for (int i = num + 1; i < 4; i++)
+    ns = wheel[num][2];
+    for (int i = num +1; i <4 0; i++)
     {
         tmp_dir *= -1;
-        if (wheel[i][6] == pre_pole)
+        if (ns == wheel[i][6])
             break;
-        pre_pole = wheel[i][2];
         move_wheel(i, tmp_dir);
+        ns = wheel[i][2];
     }
+
     move_wheel(num, dir);
 }
-int main()
+int solution(vector<vector<int>> wheel, int k, vector<vector<int>> move_dir)
 {
-    for (int i = 0; i < 4; i++)
-    {
-        string str;
-        cin >> str;
-        for (int j = 0; j < str.length(); j++)
-        {
-            wheel[i].push_back(str[j]);
+    int plus = 1;
+    int ans = 0;
+
+    for (int i = 0; i < k;i++){
+        play(move_dir[i][0] - 1, move_dir[i][1]);
+    }
+
+    for (int i = 0; i < 4;i++){
+        if(wheel[i][0]=='1'){
+            ans += plus;
+            plus *= 2;
         }
     }
-    int k;
-    cin >> k;
-    for (int i = 0; i < k; i++)
-    {
-        int num, dir;
-        cin >> num >> dir;
-        play(num - 1, dir);
-    }
-    int plus = 1;
-    int total = 0;
-    for (int i = 0; i < 4; i++)
-    {
-        if (wheel[i][0] == '1')
-            total += plus;
-        plus *= 2;
-    }
-    cout << total << "\n";
-    return 0;
+
+    return ans;
 }

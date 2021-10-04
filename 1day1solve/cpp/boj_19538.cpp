@@ -1,14 +1,43 @@
 #include <iostream>
 #include <vector>
-#include<queue>
+#include <queue>
 
 using namespace std;
 
-vector<int> solution(int N, vector<vector<int>> adj, int M, vector<int> firstInfected)
+vector<int> solution(int n, vector<vector<int>> adj, int M, vector<int> firstInfected)
 {
+    vector<int> turns(n + 1, 0);
+    vector<int> ans(n + 1, -1);
     queue<int> Q;
-    vector<int> answer(N + 1, 0);
-    vector<int> (N + 1, -1);
+
+    for(int i: firstInfected){
+        Q.push(i);
+        ans[i] = 0;
+    }
+
+    for (int i = 1; i <= n;i++){
+        turns[i] = adj[i].size() / 2;
+    }
+
+    while(!Q.empty()){
+        int current = Q.front();
+        Q.pop();
+
+        for(int i: adj[current]){
+            if(i==0)
+                break;
+            turns[i] -= 1;
+            if(turns[i]<=0&&ans[i]==-1){
+                Q.push(i);
+                ans[i] = ans[current] + 1;
+            }
+
+        }
+
+    }
+
+    ans.erase(ans.begin());
+    return ans;
 }
 
 int main()

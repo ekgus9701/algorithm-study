@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,25 +5,22 @@ using namespace std;
 
 vector<string> solution(int r, int c, int zr, int zc, vector<string> words)
 {
-    vector<string> answer;
+    vector<string> ans;
     string temp;
-
-    for (int i = 0; i < r; i++)
-    {
+    for (int i = 0; i < r;i++){
         temp = "";
-        for (int j = 0; j < c; j++)
-        {
-            for (int k = 0; k < zc; k++)
-            {
+        for (int j = 0; j < c;j++){
+            for (int k = 0; k < zc;k++){
                 temp += words[i][j];
             }
         }
-        for (int l = 0; l < zr; l++)
-        {
-            answer.push_back(temp);
+        for(int m=0;m<zr;m++){
+            ans.push_back(temp);
         }
+        
     }
-    return answer;
+
+        return ans;
 }
 
 using namespace std;
