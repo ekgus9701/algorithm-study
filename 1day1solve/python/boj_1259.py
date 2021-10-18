@@ -1,22 +1,17 @@
-while True:
-    input1=input();
-    leng1=len(input1)/2
-    last=len(input1)-1
-    
-    if(input1=="0"):
-        break
 
-    if(len(input1)==1):
-        print("yes")
-        
+def solution(user_input):
+    str1=str(user_input)
+    str_reverse="";
+    leng=len(str1)
+    for i in range(leng):
+        str_reverse+=str1[leng-1-i];
+    if(str_reverse==str1):
+        return "yes"
     else:
-        for i in range(int(leng1)):
-            if(input1[i]!=input1[last-i]):
-                print("no")
-                break
-                
-            elif(i+1==int(leng1)):
-                print("yes")
+        return "no"
 
-                
-
+while(True):
+    user_input=int(input());
+    if user_input==0:
+        break;
+    print(solution(user_input));
