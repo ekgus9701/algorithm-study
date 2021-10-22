@@ -1,15 +1,13 @@
 def solution(user_input):
-    score=0
-    total_score=0
-    for i in list(user_input):
-        if(i=='O'):
-            score+=1;
-        else:
-            score=0;
-        total_score+=score
-        
-
-    return total_score
+	ans=0
+	check=0
+	for a in list(user_input):
+		if a=="O":
+			check+=1
+			ans+=check
+		else:
+			check=0
+	return ans
 
 if __name__=='__main__':
     user_input = input()
