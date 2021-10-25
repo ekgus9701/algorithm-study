@@ -1,18 +1,25 @@
-userinput=input();
-answer='';
-if(userinput[0]=="1"):
-    answer+="1";
+def solution(src):
+    s=""
+    check=0
+    if(src[0]=='1'):
+        s+='1'
 
-count=0
-for i in range(len(userinput)-1):
-    if(userinput[i]==userinput[i+1]):
-        count+=1
-    else:
-        answer+=chr(ord('A')+count)
-        count=0
 
-answer+=chr(ord('A')+count)
-print(answer)
+    for i in range(len(src)-1):
+        if src[i]==src[i+1]:
+            check+=1
+        
+        else:
+            s+=chr(ord('A')+check)
+            check=0
+    s+=chr(ord('A')+check)
+    return s
+		
+
+if __name__=='__main__':
+    user_input = input()
+    
+    print(solution(user_input))
 
 
 
