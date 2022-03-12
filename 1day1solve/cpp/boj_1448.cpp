@@ -4,7 +4,7 @@
 using namespace std;
 
 bool compare(int i,int j){
-    return j < i;
+    return i>j;
 }
 int main(){
     ios_base::sync_with_stdio(0);

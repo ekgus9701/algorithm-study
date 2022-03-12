@@ -29,11 +29,12 @@ void bfs() {
 }
 
 int main() {
+
    cin>>n>>m;
     for (int i=0; i<n; i++) {
         for (int j=0; j<m; j++) {
             cin>>a[i][j];
-            if (a[i][j]==1) q.push({i, j});
+            if (a[i][j]==1) q.push({i, j}); //상어가 있는 곳을 큐에 넣음
         }
     }
     bfs();
