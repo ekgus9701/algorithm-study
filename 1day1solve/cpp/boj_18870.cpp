@@ -14,19 +14,24 @@ int main(){
     int a;
 
     vector<int> v;
+    vector<int> v1;
     cin>>n;
 
     for (int i = 0; i < n; i++) {
         cin>>a;
         v.push_back(a);
+        v1.push_back(a);
     }
 
     sort(v.begin(), v.end());
+   
     v.erase(unique(v.begin(), v.end()), v.end());
 
-    for (int i = 0; i < n; i++) {
-        cout<<v[i]<<" ";
+     for (int i = 0; i < n; i++ ) {
+        cout<<lower_bound(v.begin(),v.end(),v1[i])-v.begin()<<" ";
+        
     }
+    
     return 0;
 
 }
