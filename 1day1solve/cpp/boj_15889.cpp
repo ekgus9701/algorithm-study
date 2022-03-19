@@ -29,11 +29,8 @@ int main(){
        if(maxD<=v[i]+v1[i]){
            maxD=v[i]+v1[i];
        }
-       //cout<<maxD<<v[i+1];
-       if(maxD>=v[i+1]){
-           continue;}
-           
-       else{
+      
+       if(maxD<v[i+1]){
            cout<<"엄마 나 전역 늦어질 것 같아";
            return 0;
        }
