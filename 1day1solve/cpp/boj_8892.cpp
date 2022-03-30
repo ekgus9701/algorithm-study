@@ -9,25 +9,19 @@ int main(){
     int t,check=0;
     int num;
     cin>>t;
-    string s,add1,temp1,add2,temp2;
+    string s,add1,temp1;
     vector<string> str;
 
-    if(t==0){
-        cout<<0;
-    }
     for(int i=0;i<t;i++){
         cin>>num;
         str.clear();
-       check=0;
+        check=0;
        
         for(int j=0;j<num;j++){
             cin>>s;
             str.push_back(s);
         }
-         if(num==1){
-            cout<<str[0];
-            continue;
-        }
+         
         
 
         for(int p=0;p<num;p++){
@@ -55,6 +49,6 @@ int main(){
 
         }
         if(check==0)
-            cout<<0;
+            cout<<0<<"\n";
     }
 }
