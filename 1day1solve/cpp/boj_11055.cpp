@@ -20,7 +20,7 @@ int main(){
        d[i]=a[i];
        for(int j=0;j<i;j++){
            if(a[i]>a[j]){
-               d[i]=d[j]+a[i];
+               d[i]=max(d[i],d[j]+a[i]);
            }
        }
     }
