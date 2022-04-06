@@ -1,49 +1,34 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <iostream>
 
+#define MAX 4242 
 using namespace std;
+int n, k, num=0;
+int A[MAX], B[MAX]; 
 
-int n,q;
+int main() {
+   
+    cin>>n>>k;
 
+    
+    for (int i=0; i<n; i++)
+        A[i] = i + 1;
 
-int main(){
-    cin>>n;
-    vector<int> t;
-    int day=1;
-    long long maxd=0;
-
-    for(int i=0;i<n;i++){
-        cin>>q;
-        t.push_back(q);
-
-    }
-
-    sort(t.begin(),t.end());
-
-    if(n==1){
-        cout<<day+t[0]+1;
-        return 0;
-    }
-
-    maxd=day+t[t.size()-1];
-    for(int i=t.size()-2;i>=0;i--){
-        day++;
-       
-        if(maxd>=day+t[i]){
-            maxd=maxd;
+    
+    for (int i=n-1; i>0; i--) {
+        if (k >= i) {
+            k -= i;
+            A[i] = -1;
+            B[num++] = i+1;
         }
-
-        else{
-            maxd=day+t[i];
-        }
-      
     }
 
-    cout<<maxd+1;
-
-    return 0;
+   
+    for (int i=0; i<n; i++) {
+        if (A[i] >= 0)
+            B[num++] = A[i];
+        cout<<B[i]<<" ";
+    }
     
 
-
+    return 0;
 }
