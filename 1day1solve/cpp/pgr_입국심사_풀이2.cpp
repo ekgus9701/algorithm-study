@@ -7,7 +7,6 @@ using namespace std;
 long long solution(int n, vector<int> times) {
     long long answer = 0;
     
-    
     sort(times.begin(),times.end());
     
     long long left=0;
