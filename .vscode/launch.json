@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "(lldb) 연결",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": " ${fileDirname}/${fileBasenameNoExtension}",
+      "MIMode": "lldb"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Lldb debug",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "cwd": "${workspaceRoot}"
+    }
+  ]
+}
