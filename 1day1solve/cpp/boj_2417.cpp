@@ -8,10 +8,12 @@ using namespace std;
 int main(){
     long long n;
     cin>>n;
-    long double num;
+    long long num;
     num=sqrt(n);
-    cout<<static_cast<long long>(floor(num))<<endl;
+    if(num*num<n){
+        num++;
+    }
+    cout<<num;
   
 
-    //cout<<min;
 }
