@@ -3,6 +3,8 @@
 
 using namespace std;
 
+vector<int> arr;
+
 bool compare(int i,int j){
     return i>j;
 }
@@ -13,13 +15,15 @@ int main(){
 
     int n,f=0,s=1,t=2;
     cin >> n;
-    int arr[n];
+    
 
     for (int i = 0; i < n;i++){
-        cin >> arr[i];
+        int a;
+        cin >> a;
+        arr.push_back(a);
     }
 
-    sort(arr,arr+n,compare);
+    sort(arr.rbegin(),arr.rend());
     while(true){
         if(arr[f]<arr[s]+arr[t]){
             cout << arr[f] + arr[s] + arr[t] << "\n";
